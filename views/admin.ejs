@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+
+  <div class="login-container">
+    <div class="login-card">
+      <div class="logo">
+        <img src="/img/cropped-Kwara-Vector-logo-1.jpg" alt="Admin Logo">
+      </div>
+      <h2>Admin Login</h2>
+
+      <form id="admin-login-form" method="post" action="/admin/login">
+        <label for="username">Emaile</label>
+        <input type="text" id="username" name="adminEmail" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="adminPassword" required>
+
+        <a href="#" class="forgot-password">Forgot Password?</a>
+
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+  <script src="/js/login.js"></script>
+  <script>
+    document.getElementById('admin-login-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+      
+        const response = await fetch('/admin/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ adminEmail: username, adminPassword: password }),
+        });
+      
+        const data = await response.json();
+      
+        if (response.ok) {
+          localStorage.setItem('token', data.token); // Store token in local storage
+          window.location.href = '/admin/dashboard'; // Redirect to dashboard
+        } else {
+          alert(data.message || 'Login failed');
+        }
+    });
+</script>
+</body>
+</html>
