@@ -119,31 +119,11 @@ td {
 }
 
 
-button.action-btn {
-    padding: 0.5em 1em;
-    margin-right: 0.5em;
-    border: none;
-    cursor: pointer;
-}
-
-button.edit-btn {
-    background-color: #f9cf58;
-    color: #2B8B02;
-}
-
 button.delete-btn {
     background-color: #E21033;
     color: white;
 }
-
-button.add-btn {
-    margin-top: 2em;
-    padding: 0.8em 1.5em;
-    background-color: #2B8B02;
-    color: white;
-    border-radius: 25px;
-    cursor: pointer;
-}
+ 
 
 .pagination {
     display: flex;
@@ -202,12 +182,71 @@ button.cancel-btn {
     cursor: pointer;
 }
 
-/* Medium Screen (Tablets, Desktops) */
-@media (min-width: 768px) and (max-width: 1024px) {
-    /* Adjust padding for a more compact view */
-    main {
-        padding: 1.5em;
+/* User Data Cards */
+.user-cards {
+    background-color: white;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-cards h2 {
+    margin-top: 0;
+}
+
+
+.user-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1em;
+    margin-bottom: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3em 0;
+    border-bottom: 1px solid #eee;
+}
+
+.key {
+    font-weight: bold;
+    color: #2B8B02;
+}
+
+.value {
+    color: #333;
+}
+
+.delete-btn {
+    width: 100%;
+    margin-top: 1em;
+    padding: 0.7em;
+    background-color: #E21033;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .summary {
+        flex-direction: column;
+        gap: 1em;
     }
+
+    .user-table {
+        display: none;
+    }
+
+
+}
+
+/* Medium Screen (Tablets, Desktops) */
+@media  (min-width: 1024px) {
+    /* Adjust padding for a more compact view */
+    
 
     /* Reduce the size of the cards and align them vertically */
     .summary {
@@ -215,6 +254,10 @@ button.cancel-btn {
         justify-content: center;
         gap: 1em;
 
+    }
+
+    .user-cards {
+        display: none;
     }
 
     .card {
@@ -231,13 +274,6 @@ button.cancel-btn {
     th, td {
         font-size: 0.9rem;
         padding: 0.8em;
-    }
-
-    .xtra-btn {
-        display: flex;
-        flex-direction: row;
-        gap: 0.8em;
-        border-bottom: none;
     }
 
     /* Footer adjustments */

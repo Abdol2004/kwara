@@ -4,7 +4,7 @@ const stateSchema = require("../model/stateSchema");
 const { v4: uuidv4 } = require('uuid');
 const registerApplicant = async (req, res) => {
   try {
-      const { name, phone, birthday, gender, vin, nin, bvn, bankDetails, state, LGA, ward } = req.body;
+      const { name, phone, birthday, gender, occupation, education, govben,vin, nin, bvn, bankDetails, state, LGA, ward } = req.body;
       const userId = uuidv4();
       // Debugging output
       console.log(req.body); // Log the incoming request body
@@ -37,6 +37,9 @@ const registerApplicant = async (req, res) => {
           phone,
           birthday,
           gender,
+          occupation,
+          education,
+          govben,
           vin,
           nin,
           bvn,

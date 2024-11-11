@@ -121,6 +121,28 @@
                 <button id="nextPageBtn">Next &raquo;</button>
             </div>
         </section>
+         <!-- User Data Cards for Mobile View -->
+         <section class="user-cards">
+            <h2>Registered Users</h2>
+            <input type="text" id="searchInput" placeholder="Search by Name, NIN, BVN or Unique ID">
+            <% allApply.forEach(user => { %>
+            <div class="user-card" data-id="<%= user._id %>">
+                <div class="row"><span class="key">Usercode:</span> <span class="value"><%= user.userCode %></span></div>
+                <div class="row"><span class="key">Name:</span> <span class="value"><%= user.name %></span></div>
+                <div class="row"><span class="key">Phone:</span> <span class="value"><%= user.phone %></span></div>
+                <div class="row"><span class="key">Occupation:</span> <span class="value"><%= user.occupation %></span></div>
+                <div class="row"><span class="key">Education:</span> <span class="value"><%= user.education %></span></div>
+                <div class="row"><span class="key">Government Benefit:</span> <span class="value"><%= user.govben %></span></div>
+                <div class="row"><span class="key">LGA:</span> <span class="value"><%= user.LGA %></span></div>
+                <div class="row"><span class="key">Ward:</span> <span class="value"><%= user.ward %></span></div>
+                <div class="row"><span class="key">BVN:</span> <span class="value"><%= user.bvn %></span></div>
+                <div class="row"><span class="key">Bank:</span> <span class="value"><%= user.bankDetails.bankName %></span></div>
+                <div class="row"><span class="key">Account Number:</span> <span class="value"><%= user.bankDetails.accountNumber %></span></div>
+                <button class="delete-btn" data-user-id="<%= user._id %>">Delete</button>
+            </div>
+            <% }); %>
+            <!-- Repeat for each user record -->
+        </section>
     </main>
 
     <footer>

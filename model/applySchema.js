@@ -5,6 +5,26 @@ const GenderEnum = {
     FEMALE: "female",
     OTHER: "other"
 };
+const EducationEnum = {
+    SSC: "ssc",
+    NCE: "nce",
+    OND: "ond",
+    BSC: "bsc",
+    MSC: "msc",
+    MPA: "mpa",
+    PHD: "phd"
+};
+const GovEnum = {
+    OWOISOWO: "owo isowo",
+    YOUTHSKILLEDUNSKILLED: "youth",
+    OWOARUGBO: "owo arugbo",
+    AGRICIMPLENETS: "agric implements",
+    FERTILIZER: "fertilizer",
+    SCHOLARSHIP: "scholarship",
+    STUDENTAID: "student aid",
+    TRANSPORTER: "transpoter",
+    OTHET: "other pallatives"
+};
 
 const applySchema = new mongoose.Schema({
     userId: {
@@ -26,6 +46,18 @@ const applySchema = new mongoose.Schema({
     gender: {
         type: String,
         enum: Object.values(GenderEnum),
+    },
+    occupation: {
+        type: String,
+        required: true,
+    },
+    education: {
+        type: String,
+        enum: Object.values(EducationEnum),
+    },
+    govben: {
+        type: String,
+        enum: Object.values(GovEnum),
     },
     phone: {
         type: String,
